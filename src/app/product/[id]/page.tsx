@@ -1,16 +1,12 @@
+import { use } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getProductById } from '@/data/product';
 
-type Params = {
-  params: {
-    id: string;
-  };
-};
-
-export default function ProductPage({ params }: Params) {
-  const product = getProductById(params.id);
+export default function ProductPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params);
+  const product = getProductById(id);
   
   if (!product) {
     notFound();
