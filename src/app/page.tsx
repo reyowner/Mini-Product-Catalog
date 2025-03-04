@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <div className="container mx-auto px-4 py-8">
       <header className="mb-12 text-center">
-        <h1 className="text-4xl font-bold text-brown-800 mb-4">Coffee Haven</h1>
+        <h1 className="text-4xl font-bold text-brown-800 mb-4">The Barista Hub</h1>
         <p className="text-xl text-brown-600">Discover the finest coffee products for the perfect brew</p>
       </header>
 

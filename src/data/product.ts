@@ -113,35 +113,48 @@ export interface Product {
       inStock: true
     },
     {
-      id: 'coffee-mug-set',
-      name: 'Ceramic Coffee Mug Set',
+      id: 'coffee-tamper',
+      name: 'Coffee Tamper',
       category: 'accessories',
-      price: 24.99,
-      description: 'A set of four handcrafted ceramic mugs with a modern, minimalist design. The perfect size for your morning coffee or afternoon espresso.',
+      price: 899,
+      description: 'A high-quality stainless steel coffee tamper designed for baristas and home espresso enthusiasts. Ensures even compression of coffee grounds for better extraction and rich espresso flavor.',
       features: [
-        'Set of 4 mugs',
-        'Capacity: 12 oz each',
-        'Microwave and dishwasher safe',
-        'Available in multiple colors'
+        'Flat stainless steel base for uniform tamping',
+        'Ergonomic wooden handle for comfortable grip',
+        'Durable and rust-resistant materials'
       ],
-      rating: 4.5,
-      image: '/globe.svg',
+      rating: 4.7,
+      image: '/coffee-tamper.png',
       inStock: true
     },
     {
-      id: 'coffee-canister',
-      name: 'Airtight Coffee Canister',
+      id: 'espresso-cup',
+      name: 'Classic Espresso Cup',
       category: 'accessories',
-      price: 18.99,
-      description: 'Keep your coffee fresh with this airtight stainless steel canister. Features a CO2 release valve and date tracker to monitor freshness.',
+      price: 249,
+      description: 'A simple and elegant ceramic espresso cup designed for enjoying rich, bold espresso shots. Perfect for home or café use.',
       features: [
-        'Capacity: 16 oz of beans',
-        'One-way CO2 release valve',
-        'Date wheel for tracking freshness',
-        'BPA-free silicone seal'
+        'Capacity: 2 oz (60 ml)',
+        'Classic design with a comfortable handle',
+        'Dishwasher and microwave safe'
       ],
       rating: 4.6,
-      image: '/globe.svg',
+      image: '/espresso-cup.png',
+      inStock: true
+    },
+    {
+      id: 'knock-box',
+      name: 'Detachable Knock Box',
+      category: 'accessories',
+      price: 799,
+      description: 'A durable and compact knock box with a detachable knock bar, making it easy to dispose of used espresso grounds while keeping your coffee station clean.',
+      features: [
+        'Detachable knock bar for easy cleaning',
+        'Non-slip rubber base for stability',
+        'Compact design for home or café use'
+      ],
+      rating: 4.8,
+      image: '/knock-box.png',
       inStock: true
     }
   ];
