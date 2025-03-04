@@ -1,23 +1,18 @@
+import { use } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getProductsByCategory, categories } from '@/data/product';
 
-type Params = {
-  params: {
-    id: string;
-  };
-};
-
-export default function CategoryPage({ params }: Params) {
-  const categoryId = params.id;
-  const category = categories.find(c => c.id === categoryId);
+export default function CategoryPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params);
+  const category = categories.find(c => c.id === id);
   
   if (!category) {
     notFound();
   }
   
-  const products = getProductsByCategory(categoryId);
+  const products = getProductsByCategory(id);
 
   return (
     <div className="container mx-auto px-4 py-8">
