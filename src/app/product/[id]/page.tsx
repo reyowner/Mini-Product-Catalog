@@ -1,10 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-
 import { getProductById } from '@/data/product';
 
-export default function ProductPage({ params }: { params: { id: string } }) {
+type Params = {
+  params: {
+    id: string;
+  };
+};
+
+export default function ProductPage({ params }: Params) {
   const product = getProductById(params.id);
   
   if (!product) {
@@ -21,7 +26,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
         <div className="md:flex">
           <div className="md:w-1/3 mb-6 md:mb-0 flex items-center justify-center">
             <Image 
-              src={product.image || '/'} 
+              src={product.image || '/vercel.svg'} 
               alt={product.name} 
               width={240} 
               height={240} 
@@ -41,7 +46,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
               <span className="text-brown-600">{product.rating.toFixed(1)}</span>
             </div>
             
-            <p className="text-2xl font-bold text-brown-800 mb-4">₱{product.price.toFixed(2)}</p>
+            <p className="text-2xl font-bold text-brown-800 mb-4">${product.price.toFixed(2)}</p>
             
             <div className="mb-4">
               <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${product.inStock ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
@@ -75,7 +80,9 @@ export default function ProductPage({ params }: { params: { id: string } }) {
               </div>
             )}
             
-            
+            <button className="w-full md:w-auto bg-brown-800 text-white px-6 py-3 rounded-md hover:bg-brown-700 transition duration-300">
+              Add to Cart
+            </button>
           </div>
         </div>
         
