@@ -75,10 +75,6 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                 <span className="font-medium text-brown-800">Weight:</span> {product.weight} oz
               </div>
             )}
-            
-            <button className="w-full md:w-auto bg-brown-800 text-white px-6 py-3 rounded-md hover:bg-brown-700 transition duration-300">
-              Add to Cart
-            </button>
           </div>
         </div>
         
