@@ -22,7 +22,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
         <div className="md:flex">
           <div className="md:w-1/3 mb-6 md:mb-0 flex items-center justify-center">
             <Image 
-              src={product.image || '/vercel.svg'} 
+              src={product.image || '/'} 
               alt={product.name} 
               width={240} 
               height={240} 

@@ -23,7 +23,7 @@ export default function CategoryPage({ params }: { params: Promise<{ id: string 
         <div className="flex items-center mb-6">
           <div className="w-16 h-16 mr-4">
             <Image 
-              src={category.image || '/vercel.svg'} 
+              src={category.image || '/'} 
               alt={category.name} 
               width={64} 
               height={64} 
