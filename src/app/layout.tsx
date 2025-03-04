@@ -8,6 +8,9 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'The Barista Hub | Premium Coffee Products',
   description: 'Discover our selection of premium coffee beans, brewing equipment, and accessories.',
+  icons: {
+    icon: '/coffee-beans.png',
+  },
 };
 
 export default function RootLayout({
