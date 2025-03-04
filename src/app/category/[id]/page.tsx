@@ -4,14 +4,23 @@ import { notFound } from 'next/navigation';
 
 import { getProductsByCategory, categories } from '@/data/product';
 
-export default function CategoryPage({ params }: { params: { id: string } }) {
-  const categoryId = params.id;
-  const category = categories.find(c => c.id === categoryId);
-  
-  if (!category) {
-    notFound();
+// ✅ Explicitly defining the expected props type
+interface CategoryPageProps {
+  params: { id: string };
+}
+
+export default function CategoryPage({ params }: CategoryPageProps) {
+  if (!params || !params.id) {
+    return notFound();
   }
-  
+
+  const categoryId = params.id;
+  const category = categories.find((c) => c.id === categoryId);
+
+  if (!category) {
+    return notFound();
+  }
+
   const products = getProductsByCategory(categoryId);
 
   return (
@@ -22,11 +31,12 @@ export default function CategoryPage({ params }: { params: { id: string } }) {
         </Link>
         <div className="flex items-center mb-6">
           <div className="w-16 h-16 mr-4">
-            <Image 
-              src={category.image || '/'} 
-              alt={category.name} 
-              width={64} 
-              height={64} 
+            <Image
+              src={category.image || '/default-category.png'} // ✅ Prevent potential error
+              alt={category.name}
+              width={64}
+              height={64}
+              priority
             />
           </div>
           <div>
@@ -39,14 +49,15 @@ export default function CategoryPage({ params }: { params: { id: string } }) {
       {products.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {products.map((product) => (
-            <Link key={product.id} href={`/product/${product.id}`}>
+            <Link key={product.id} href={`/product/${product.id}`} className="group">
               <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300 h-full flex flex-col">
                 <div className="w-full mb-4 flex items-center justify-center">
-                  <Image 
-                    src={product.image || '/vercel.svg'} 
-                    alt={product.name} 
-                    width={120} 
-                    height={120} 
+                  <Image
+                    src={product.image || '/vercel.svg'}
+                    alt={product.name}
+                    width={120}
+                    height={120}
+                    priority
                   />
                 </div>
                 <h3 className="text-lg font-medium text-brown-800 mb-2">{product.name}</h3>
@@ -56,7 +67,7 @@ export default function CategoryPage({ params }: { params: { id: string } }) {
                   <div className="mt-2 flex items-center">
                     <div className="flex text-yellow-500">
                       {[...Array(5)].map((_, i) => (
-                        <span key={i} className={i < Math.floor(product.rating) ? "text-yellow-500" : "text-gray-300"}>★</span>
+                        <span key={i} className={i < Math.floor(product.rating) ? 'text-yellow-500' : 'text-gray-300'}>★</span>
                       ))}
                     </div>
                     <span className="ml-1 text-sm text-brown-600">{product.rating.toFixed(1)}</span>
