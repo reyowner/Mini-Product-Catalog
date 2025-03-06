@@ -1,10 +1,8 @@
-// Import Images
 import Image from 'next/image';
 import Link from 'next/link';
 import '@/app/globals.css';
 import { products, categories } from '@/data/product';
 
-// Define unique images for featured products
 const featuredImages = [
   '/bag.png',
   '/bag.png',
@@ -12,7 +10,6 @@ const featuredImages = [
 ];
 
 export default function Home() {
-  // Get featured products (first 3 products)
   const featuredProducts = products.slice(0, 3);
 
   return (
