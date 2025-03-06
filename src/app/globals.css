@@ -25,31 +25,26 @@ body {
 }
 
 /* Dark mode specific styles */
-
 .dark .bg-brown-100 {
-  background-color: rgb(60, 40, 25); /* Darker brown background */
+  background-color: rgb(60, 40, 25);
 }
 
 .dark .bg-white {
-  background-color: rgb(80, 60, 40); /* Darker white background */
+  background-color: rgb(80, 60, 40); 
 }
 
 .dark .bg-brown-800 {
-  background-color: rgb(18, 10, 5); /* Darker brown background */
+  background-color: rgb(18, 10, 5); 
 }
 
 .dark .text-brown-800 {
-  color: rgb(255, 233, 214); /* Lighter text color */
+  color: rgb(255, 233, 214);
 }
 
 .dark .text-brown-600 {
-  color: rgb(220, 200, 180); /* Lighter text color */
+  color: rgb(220, 200, 180); 
 }
 
 .dark .text-brown-200 {
-  color: rgb(180, 160, 140); /* Lighter hover color */
-}
-
-.dark .shadow-lg {
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5); /* Adjust shadow for dark mode */
+  color: rgb(180, 160, 140); 
 }
